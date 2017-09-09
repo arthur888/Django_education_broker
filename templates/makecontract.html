@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+            <h1>{% trans "Book"%}</h1>
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <div class="portlet box purple">
+                        <div class="portlet-title">
+                          <div class="caption">
+                          </div>
+                          <div class="tools">
+                            <a href="" class="collapse"></a>
+                          </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="form-body">
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="row" >
+                                         <div class="form-group col-md-12" style="margin: 5px; text-align: center">
+                                            <label for="" class=" control-label" ><h2>Agreement</h2></label>
+                                            <div class="form-group col-md-12" style="margin: 5px">
+                                                <p>loeine jienfjhj euhugq4et efadrgqr dfloeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr dfloeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr df
+                                                    loeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr df
+                                                    loeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr dfloeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr df
+                                                    loeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr dfloeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr dfloeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr df
+                                                    loeine jienfjhj euhugahfjeuhadf de efq4et efadrgqr df
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-md-12">
+                                            <div class="form-group col-md-5" style="margin: 5px">
+                                                <label for="" class=" control-label">Student Name<span class="require">*</span></label>
+                                                <div class="form-group " style="margin: 5px">
+                                                    {{ student.username }}
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-5" style="margin: 5px">
+                                                <label for="" class=" control-label">Tutor Name<span class="require">*</span></label>
+                                                <div class="form-group " style="margin: 5px">
+                                                    {{ teacher.username }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row" >
+                                         <div class="form-group col-md-12" style="margin: 5px">
+                                            <label for="" class=" control-label"><span class="require">*</span></label>
+                                            <div class="form-group col-md-12" style="margin: 5px">
+                                                <input type="checkbox" required value="I agree">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <input type="submit" class="btn btn-primary" value="{% trans "Send to Tutor" %} &raquo;"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

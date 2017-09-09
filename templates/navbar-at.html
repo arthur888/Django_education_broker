@@ -1,0 +1,51 @@
+{% load i18n %}
+{% load staticfiles %}
+        <!-- BEGIN HEADER -->
+    <div class="header">
+      <div class="container-fluid" style="padding-right: 60px">
+{#        <a class="site-logo" href="index.html"><img src="{% static "assets/frontend/layout/img/logos/logo-corp-red.png" %}" alt="Metronic FrontEnd"></a>#}
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit">
+          <ul>
+            <li><a style="padding: 15px; vertical-align: middle" class="site-logo" href="/"><img width="50px" style="padding: 0; margin: 0" src="{% static "assets/img/logo_.png" %}" alt="Nexustar"></a></li>
+            <li class="dropdown dropdown-megamenu active"><a href="/"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li class="dropdown dropdown-megamenu"><a href="/teacherinfo/"><i class="fa fa-fw fa-graduation-cap fa-6"></i> Profile Info</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;"><i class="fa fa-fw fa-money"></i> Payment Management</a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-fw fa-cc-visa"></i>Payout Settinga</a></li>
+                <li><a href="#"><i class="fa fa-fw fa-pencil"></i>Payments of Lessons</a></li>
+              </ul>
+            </li>
+            <li class="dropdown dropdown-megamenu"><a href="#"><i class="fa fa-fw fa-calendar" ></i> Sessions</a></li>
+            <li class="dropdown dropdown-megamenu"><a href="#"><i class="fa fa-fw fa-user"></i> Existing Clients</a></li>
+            <li class="dropdown dropdown-megamenu"><a href="/backgroundcheck/"><i class="fa fa-fw fa-keyboard-o fa-lg"></i> Background Check</a></li>
+            <li class="dropdown dropdown-megamenu"><a href="/clientsrecommendation/"><i class="fa fa-fw fa-bell fa-lg"></i> Clients Recommendation</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;"><i class="fa fa-fw fa-pencil-square-o"></i> Blog</a>
+              <ul class="dropdown-menu">
+                <li><a href="/blog/"><i class="fa fa-comments"></i> Blog All</a></li>
+                <li><a href="/blog/my/"><i class="fa fa-comment-o"></i> My Blog</a></li>
+                <li><a href="/blog/create/"><i class="fa fa-external-link"></i> + Add Blog</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:"><i class="fa fa-fw fa-envelope"></i> Message</a>
+              <ul class="dropdown-menu">
+                <li><a href="/messages/"><i class="fa fa-fw fa-envelope-o"></i>InBox</a></li>
+                <li><a href="/messages/outbox/"><i class="fa fa-fw fa-folder-open"></i>OutBox</a></li>
+                <li><a href="/messages/compose/"><i class="fa fa-external-link"></i> Send Message</a></li>
+                <li><a href="/messages/trash/"><i class="fa fa-fw fa-trash"></i>Trash</a></li>
+              </ul>
+            </li>
+            <li class="dropdown dropdown-megamenu"><a href="#"><i class="fa fa-fw fa-graduation-cap fa-6"></i> Testimony</a></li>
+            <li class="dropdown dropdown-megamenu"><a href="#"><i class="fa fa-fw fa-graduation-cap fa-6"></i> Refer your client</a></li>
+            <li class="dropdown dropdown-megamenu"><a href="#"><i class="fa fa-fw fa-graduation-cap fa-6"></i> Online</a></li>
+
+          </ul>
+        </div>
+        <!-- END NAVIGATION -->
+      </div>
+    </div>
+    <!-- Header END -->

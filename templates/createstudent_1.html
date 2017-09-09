@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+
+    <div class="main" >
+      <div class="container">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12" style="position: absolute; top:10%; ">
+            <h1>User Profile</h1>
+              <h4>To get started, please fill out the following form with your information and answer a few questions</h4>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <form class="form-horizontal" role="form" method="post" action="/createstudent_1/">
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>EDUCATIONAL NEEDS</legend>
+                        <hr>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_1form.timezone.error }}
+                                <label for="" class=" control-label">Timezone <span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_1form.timezone }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_1form.country.error }}
+                                <label for="first_name" class=" control-label">Country <span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_1form.country }}
+                                </div>
+                              </div>
+                        </div>
+                        <legend>CONTACT INFORMATION</legend>
+                        <hr>
+                        <div class="row" >
+                            <div class="form-group col-md-10" style="margin: 5px">
+                                {{ cs_1form.country.error }}
+                                <label for="first_name" class=" control-label">Are you parent or student? <span class="require">*</span></label><br><br>
+                                <div class="">
+                                    {{ cs_1form.ageverify }}
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">CONTINUE TO NEXT STEP</button>
+                        <a type="button" href="/" class="btn btn-default">CANCEL</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

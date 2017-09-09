@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+    <div class="main" >
+      <div class="container">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12" style="position: absolute; top:20%; ">
+            <h1>Educator Profile</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <form class="form-horizontal" role="form" method="post" action="/createteacher_1/">
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>LOACTION AND TRAVEL</legend>
+                        <hr>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_1form.timezone.errors }}
+                                <label for="first_name" class=" control-label">Timezone <span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_1form.timezone }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_1form.range.errors }}
+                                <label for="first_name" class=" control-label">What distance are you willing to travel to meet your students? <span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_1form.range }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                            <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_1form.travel.error }}
+                                <label for="" class=" control-label">At what locations are you willing to tutor? (Select all that apply) <span class="require">*</span></label>
+                                <div class="form-group col-md-10" style="margin: 5px">
+                                {{ ct_1form.travel }}
+                              </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">CONTINUE TO NEXT STEP</button>
+                        <a type="button" href="/" class="btn btn-default">CANCEL</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

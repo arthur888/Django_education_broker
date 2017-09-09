@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+
+        <h1>{% trans "View Message" %}</h1>
+
+
+            <div class="row">
+                <div class="col-md-10 col-sm-10">
+
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                          <div class="caption">
+                            <i class="fa fa-gift"></i> {{ postdata.prprice.hpname }}
+                          </div>
+                          <div class="tools">
+                            <a href="" class="collapse"></a>
+                          </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="form-body">
+                                <dl class="message-headers">
+                                    <dt><h4>{% trans "Title" %}</h4></dt>
+                                    <dd><h4><strong>{{ message.subject }}</strong></h4></dd>
+                                    <hr>
+                                    <dt><h4>{% trans "Sender" %}</h4></dt>
+                                    <dd><h4><strong>{{ message.sender }}</strong></h4></dd>
+                                    <hr>
+                                    <dt><h4>{% trans "Date" %}</h4></dt>
+                                    <dd><h4><strong>{{ message.sent_at|date:_("DATETIME_FORMAT")}}</strong></h4></dd>
+                                    <hr>
+                                    <dt><h4>{% trans "Recipient" %}</h4></dt>
+                                    <dd><h4><strong>{{ message.recipient }}</strong></h4></dd><hr>
+                                </dl>
+                                <strong><h4>{{ message.body|linebreaksbr }}</h4></strong><br /><br />
+
+                                {% ifequal message.recipient.pk user.pk %}
+                                <a class="btn btn-primary" type="button" href="{% url 'messages_reply' message.id %}">{% trans "Reply" %}</a>
+                                {% endifequal %}
+                                <a class="btn btn-default" type="button" href="{% url 'messages_delete' message.id %}">{% trans "Delete" %}</a>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+    </div>
+
+
+{% endblock %}

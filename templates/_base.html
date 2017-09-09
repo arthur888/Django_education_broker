@@ -1,0 +1,77 @@
+{% load staticfiles %}
+{% load i18n %}
+<html>
+
+{% language 'zn_Halt' %}
+
+  <head>
+
+    <title>{{ title }}</title>
+{#    {% block extra_head %}#}
+{#    {% endblock %}#}
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Fonts START -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Pathway+Gothic+One|PT+Sans+Narrow:400+700|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static "/assets/global/plugins/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/global/plugins/font-awesome/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/global/plugins/fancybox/source/jquery.fancybox.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/global/css/components.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/style.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/style-responsive.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/themes/red.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/custom.css" %}">
+
+    <script src="{% static "/assets/global/plugins/respond.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/jquery.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/jquery-migrate.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" %}"></script>
+    <script src="{% static "/assets/frontend/onepage/scripts/revo-ini.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/jquery.easing.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/jquery.parallax.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/jquery.scrollTo.min.js" %}"></script>
+    <script src="{% static "/assets/frontend/onepage/scripts/jquery.nav.js" %}"></script>
+    <script src="{% static '/assets/frontend/onepage/scripts/layout.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+          Layout.init();
+          Layout.initUniform();
+          Layout.initTwitter();
+        });
+    </script>
+
+
+
+  </head>
+  <body class="corporate">
+    {% block body %}
+
+        {% if messages %}
+            <div>
+              <strong>Messages:</strong>
+              <ul>
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+        {% endif %}
+
+        {% block content %}
+
+
+        {% endblock %}
+
+    {% endblock %}
+{#    {% block extra_body %}#}
+{##}
+{#    {% endblock %}#}
+  </body>
+{% endlanguage %}
+</html>

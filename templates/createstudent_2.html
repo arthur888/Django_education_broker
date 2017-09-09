@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+
+    <div class="main" >
+      <div class="container">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12" style="position: absolute; top:10%; ">
+            <h1>User Profile</h1>
+              <h4>To get started, please fill out the following form with your information and answer a few questions</h4>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <form class="form-horizontal" role="form" method="post" action="/createstudent_2/">
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>EDUCATIONAL NEEDS</legend>
+                        <hr>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_2form.servicetype.errors }}
+                                <label for="" class=" control-label">Which services does the student hope to recieve from our educators?  <span class="require">*</span></label>
+                                <div class="form-group col-md-10" style="margin: 5px">
+                                {{ cs_2form.servicetype }}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_2form.goal_s.errors }}
+                                <label for="" class=" control-label">What goals does the student hope to achieve with the assistance of our educators? <span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_2form.goal_s }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_2form.subject_s.errors }}
+                                <label for="" class=" control-label">What subject(s) would the student like to receive tutoring in? (Please be specific, e.g. elementary math, Calculus A, etc.). <span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_2form.subject_s }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_2form.grade_s.errors }}
+                                <label for="" class=" control-label">What grade is the student currently enrolled in?<span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_2form.grade_s }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_2form.disability_s.errors }}
+                                <label for="" class=" control-label">Is your work affected by a learning disability or any other special circumstances which you would like share with us?<span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_2form.disability_s }}
+                                </div>
+                              </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">CONTINUE TO NEXT STEP</button>
+                        <a type="button" href="/createstudent_1/" class="btn btn-default">GO TO PREVIOUS STEP</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

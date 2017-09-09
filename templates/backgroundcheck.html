@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+    <div class="main" >
+      <div class="container">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12" style="">
+            <h1>BACKGROUND CHECK</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-10 col-sm-10">
+                  <form class="form-horizontal" role="form" method="post" action="/backgroundcheck/" enctype='multipart/form-data'>
+                      {% csrf_token %}
+                    <fieldset>
+                        <h4></h4>
+                        <p style="font-size: 18px">
+                            The information you provide us with will be sent to a secure website (http://accuratebackground.com). They will conduct the background check.
+                        </p>
+                        <hr>
+
+
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform_flname.first_name.errors }}
+                                <label for="" class=" control-label">First Name <span class="require">*</span></label>
+                                <div class="">
+                                    {{ bkchform_flname.first_name }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform_flname.last_name.errors }}
+                                <label for="" class="control-label">Last Name<span class="require">*</span></label>
+                                <div class="">
+                                  {{ bkchform_flname.last_name }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform.birthday.errors }}
+                                <label for="" class=" control-label">Date of Birth(YYYY-MM-DD) <span class="require">*</span></label>
+                                <div class="">
+                                    {{ bkchform.birthday }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform.ssn.errors }}
+                                <label for="" class="control-label">SSN(#########) (9 digits format)<span class="require">*</span></label>
+                                <div class="">
+                                  {{ bkchform.ssn }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform.address.errors }}
+                                <label for="" class=" control-label">Address <span class="require">*</span></label>
+                                <div class="">
+                                    {{ bkchform.address }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform.city.errors }}
+                                <label for="" class="control-label">City<span class="require">*</span></label>
+                                <div class="">
+                                  {{ bkchform.city }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform.state.errors }}
+                                <label for="" class=" control-label">State in Abbreviation (e.g. NY, CA) <span class="require">*</span></label>
+                                <div class="">
+                                    {{ bkchform.state }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ bkchform.zipcode.error }}
+                                <label for="" class="control-label">Zip Code<span class="require">*</span></label>
+                                <div class="">
+                                  {{ bkchform.zipcode }}
+                                </div>
+                              </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">UPDATE DATA</button>
+                        <a type="button" href="#" class="btn btn-default">CLEAR</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

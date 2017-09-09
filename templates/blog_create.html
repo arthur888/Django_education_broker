@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-12 col-sm-12">
+            <h1>Blog Item</h1>
+            <div class="content-page">
+              <div class="row">
+                <!-- BEGIN LEFT SIDEBAR -->
+                <div class="col-md-9 col-sm-9 blog-item">
+                  <div class="post-comment padding-top-40">
+                    <h3>Write Blog</h3>
+                    <form role="form" method="post" action="/blog/create/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                      <div class="form-group">
+                          {{ blogform.btitle.error }}
+                        <label>Title</label>
+                          {{ blogform.btitle }}
+                      </div>
+
+                      <div class="form-group">
+                          {{ blogform.bcontent.error }}
+                        <label>Content</label>
+                          {{ blogform.bcontent }}
+                      </div>
+                      <div class="form-group">
+                          {{ blogform.bimg.error }}
+                        <label>Upload Image</label>
+                          {{ blogform.bimg }}
+                      </div>
+                      <p><button class="btn btn-primary" type="submit">Post a Blog</button></p>
+                    </form>
+                  </div>
+                </div>
+                <!-- END LEFT SIDEBAR -->
+
+                {% include "blog_sidebar_right.html" %}
+                <!-- END RIGHT SIDEBAR -->
+              </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+{% include "footer-m.html" %}
+{% endblock %}

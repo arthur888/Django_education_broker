@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR
+          <div class="sidebar col-md-3 col-sm-3">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
+            </ul>
+          </div>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+{#            {{ postform.as_p }}#}
+
+            <h1>Posts</h1>
+            <div class="content-form-page">
+
+                {% for postdata in existingpost %}
+
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+
+                        <div class="portlet box blue">
+                            <div class="portlet-title">
+                              <div class="caption">
+                                <i class="fa fa-gift"></i> {{ postdata.prprice.hpname }}
+                              </div>
+                              <div class="tools">
+                                <a href="" class="collapse"></a>
+                              </div>
+                            </div>
+                            <div class="portlet-body form">
+                                <div class="form-body">
+                                    <dl>
+                                        <dt>Category</dt>
+                                        <dd>{{ postdata.prcategory.cname }}
+                                        <dt>Expectation of Educator's Experience level </dt>
+                                        <dd>{{ postdata.prexperience_level.exlname }}
+                                        <dt>Expectation of Educator's Education level</dt>
+                                        <dd>{{ postdata.preducation_level.edlname }}
+{#                                        <dt>User Rating</dt>#}
+{#                                        <dd>{{ postdata.pruser_rating.urname }}#}
+{#                                        <dt>Price per hour range</dt>#}
+{#                                        <dd>{{ postdata.prprice.hpname }}#}
+{#                                        <dt>Educational Background</dt>#}
+{#                                        <dd>{{ postdata.preducation }}</dd>#}
+{#                                        <dt>Educational Objective</dt>#}
+{#                                        <dd>{{ postdata.probjective }}</dd>#}
+                                        <hr>
+                                        <dd><a type="button" onclick="SendRespond({{ postdata.id }})" class="btn btn-default">Response</a></dd>
+                                    </dl>
+
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+
+{#            <div class="row">#}
+{#                <div class="col-md-10 col-sm-10">#}
+{#                     <div class="portlet box purple">#}
+{#                        <div class="portlet-title">#}
+{#                          <div class="caption">#}
+{#                            <i class="fa fa-gift"></i>POST LIST#}
+{#                          </div>#}
+{#                          <div class="tools">#}
+{#                            <a class="collapse" href="javascript:;" data-original-title="" title="">#}
+{#                            </a>#}
+{#                          </div>#}
+{#                        </div>#}
+{#                        <div class="portlet-body">#}
+{#                          <div class="portlet-body">#}
+{#                                <div class="table-responsive">#}
+{#                                    <table class="table table-hover table-bordered table-striped">#}
+{#                                    <thead>#}
+{#                                    <tr>#}
+{#                                        <th>Date</th>#}
+{#                                        <th>Type</th>#}
+{#                                        <th>Subject</th>#}
+{#                                        <th>Score</th>#}
+{#                                        <th>Full Score</th>#}
+{#                                        <th>Rank</th>#}
+{#                                        <th># of all Participants</th>#}
+{#                                    </tr>#}
+{#                                    </thead>#}
+{#                                    <tbody>#}
+{#                                    {% for postdata in existingpost %}#}
+{#                                    <tr>#}
+{#                                        <td>{{ postdata.prcategory.cname }}</td>#}
+{#                                        <td>{{ postdata.prexperience_level.exlname }}</td>#}
+{#                                        <td>{{ postdata.preducation_level.edlname }}</td>#}
+{#                                        <td>{{ postdata.pruser_rating.urname }}</td>#}
+{#                                        <td>{{ postdata.prprice.hpname }}</td>#}
+{#                                        <td>{{ postdata.preducation }}</td>#}
+{#                                        <td>{{ postdata.probjective }}</td>#}
+{#                                    </tr>#}
+{#                                    {% endfor %}#}
+{#                                    </tbody>#}
+{#                                    </table>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                      </div>#}
+{#                </div>#}
+{#            </div>#}
+
+
+
+
+
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+
+        function SendRespond(postid) {
+            var postdata={
+                  'postid':postid,
+                  'csrfmiddlewaretoken': '{{ csrf_token }}'
+            }
+            $.post('/clientsrecommendation/', postdata, function(data) {
+                if (data=="ok")
+                    alert("Your Respond was sent to the client!");
+                else if (data=="exist")
+                    alert("You alrealy sent!");
+                else
+                    alert("Failed!")
+            });
+        }
+    </script>
+
+
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+    <div class="main" >
+      <div class="container">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12" style="position: absolute; top:10%; margin-bottom: 150px">
+            <h1>TUTOR PROFILE</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <form class="form-horizontal" role="form" method="post" action="/createteacher_3/" enctype='multipart/form-data'>
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>BACKGROUND CHECK</legend>
+                        <h4></h4>
+                        <p style="font-size: 18px">
+                            Our students expect all of our educators to be verified and free of any criminal history. Therefore, we require all tutors to undergo background check.
+                        </p>
+                        <hr>
+                        <p style="font-size: 18px">
+                            When you sign up for the background check, you will be charged $10 to your card. Upon acquiring your first student, we will REIMBURSE you $10 to your credit card.
+                            Your credit card information and personal information will never be stored or saved on our website.
+                        </p>
+                        <hr>
+                        <p style="font-size: 18px">
+                            In other words, when you acquire a paying customer on our website, your background check will be FREE.
+                        </p>
+                        <hr>
+                        <p style="font-size: 18px">
+                            The information you provide us with will be sent to a secure website (http://accuratebackground.com). They will  conduct the background check.
+                        </p>
+                        <hr>
+
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form_flname.first_name.error }}
+                                <label for="" class=" control-label">First Name <span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_3form_flname.first_name }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form_flname.last_name.error }}
+                                <label for="" class="control-label">Last Name<span class="require">*</span></label>
+                                <div class="">
+                                  {{ ct_3form_flname.last_name }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form.birthday.error }}
+                                <label for="" class=" control-label">Date of Birth(YYYY-MM-DD) <span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_3form.birthday }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form.ssn.error }}
+                                <label for="" class="control-label">SSN(#########) (9 digits format)<span class="require">*</span></label>
+                                <div class="">
+                                  {{ ct_3form.ssn }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form.address.error }}
+                                <label for="" class=" control-label">Address <span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_3form.address }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form.city.error }}
+                                <label for="" class="control-label">City<span class="require">*</span></label>
+                                <div class="">
+                                  {{ ct_3form.city }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form.state.error }}
+                                <label for="" class=" control-label">State in Abbreviation (e.g. NY, CA) <span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_3form.state }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_3form.zipcode.error }}
+                                <label for="" class="control-label">Zip Code<span class="require">*</span></label>
+                                <div class="">
+                                  {{ ct_3form.zipcode }}
+                                </div>
+                              </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">CONTINUE TO NEXT STEP</button>
+                        <a type="button" href="/createteacher_2/" class="btn btn-default">GO TO PREVIOUS STEP</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

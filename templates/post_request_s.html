@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR
+          <div class="sidebar col-md-3 col-sm-3">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
+            </ul>
+          </div>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+{#            {{ postform.as_p }}#}
+
+            <h1>Post Your Request</h1>
+            <div class="content-form-page">
+
+            {% for postdata in existingpost %}
+
+            <div class="row">
+                <div class="col-md-10 col-sm-10">
+
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                          <div class="caption">
+                            <i class="fa fa-gift"></i> {{ postdata.prprice.hpname }}
+                          </div>
+                          <div class="tools">
+                            <a href="" class="collapse"></a>
+                          </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="form-body">
+                                <dl>
+                                    <dt>Educational Background</dt>
+                                    <dd>{{ postdata.preducation }}</dd>
+                                    <dt>Educational Objective</dt>
+                                    <dd>{{ postdata.probjective }}</dd>
+                                    <dd><a href="/postrequestst/viewrespond/?postid={{ postdata.id }}" type="button" class="btn btn-default">View Respond</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+              <div class="row">
+                <div class="col-md-10 col-sm-10">
+                  <form class="form-horizontal" role="form" method="post" action="/postrequestst/">
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>Your Request</legend>
+                        <div class="row" >
+                          <div class="form-group col-md-10" style="margin: 5px">
+                              {{ categories.error }}
+                            <label for="category" class=" control-label">Category <span class="require">*</span></label>
+                            <div class="">
+                                <select class="form-control" title="category" id="id_category" name="category" required="">
+                                    {% for category in categories %}
+                                        <option value="{{ category.cname}}">{{ category.cname }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ experiencelevels.error }}
+                                <label for="experience_level" class="control-label">Expectation of Educator's Experience level <span class="require">*</span></label>
+                                <div class="">
+                                      <select class="form-control" title="experiencelevel" id="id_experiencelevel" name="experiencelevel" required="">
+                                        {% for experiencelevel in experiencelevels %}
+                                            <option value="{{ experiencelevel.exlname}}">{{ experiencelevel.exlname }}</option>
+                                        {% endfor %}
+                                      </select>
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ educationlevels.error }}
+                                <label for="education_level" class=" control-label">Expectation of Educator's Education level <span class="require">*</span></label>
+                                <div class="">
+                                     <select class="form-control" title="educationlevel" id="id_educationlevel" name="educationlevel" required="">
+                                        {% for educationlevel in educationlevels %}
+                                            <option value="{{ educationlevel.edlname}}">{{ educationlevel.edlname }}</option>
+                                        {% endfor %}
+                                      </select>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ userratings.error }}
+                                <label for="user_rating" class=" control-label">User Rating <span class="require">*</span></label>
+                                <div class="">
+                                    <select class="form-control" title="userrating" id="id_userrating" name="userrating" required="">
+                                        {% for userrating in userratings %}
+                                            <option value="{{ userrating.urname}}">{{ userrating.urname }}</option>
+                                        {% endfor %}
+                                      </select>
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ hprices.error }}
+                                <label for="hprices" class=" control-label">Price per hour range <span class="require">*</span></label>
+                                <div class="">
+                                    <select class="form-control" title="hprice" id="id_hprice" name="hprice" required="">
+                                        {% for hprice in hprices %}
+                                            <option value="{{ hprice.hpname}}">{{ hprice.hpname }}</option>
+                                        {% endfor %}
+                                      </select>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ postform.preducation.error }}
+                                <label for="educationbackground" class=" control-label">Your educational background <span class="require">*</span></label>
+                                <div class="">
+                                  {{ postform.preducation }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ postform.probjective.error }}
+                                <label for="objective" class="control-label">Your educational objective <span class="require">*</span></label>
+                                <div class="">
+                                  {{ postform.probjective }}
+                                </div>
+                              </div>
+                        </div>
+
+
+
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">Submit your request</button>
+                        <button type="button" class="btn btn-default">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+{% endblock %}

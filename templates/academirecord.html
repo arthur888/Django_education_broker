@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+
+        <h1>Academic Record</h1>
+
+
+
+
+{#         {% for postdata in existingpost %}#}
+
+            <div class="row">
+                <div class="col-md-10 col-sm-10">
+                     <div class="portlet box purple">
+                        <div class="portlet-title">
+                          <div class="caption">
+                            <i class="fa fa-gift"></i>Description Lists
+                          </div>
+                          <div class="tools">
+                            <a class="collapse" href="javascript:;" data-original-title="" title="">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="portlet-body">
+                          <div class="portlet-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Subject</th>
+                                        <th>Score</th>
+                                        <th>Full Score</th>
+                                        <th>Rank</th>
+                                        <th># of all Participants</th>
+                                        <th>Participants Range</th>
+                                        <th>Comments</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for acdata in existingacrecord %}
+                                    <tr>
+                                        <td>{{ acdata.adate.date }}</td>
+                                        <td><span class="label label-sm label-success">{{ acdata.atype }}</span></td>
+                                        <td>{{ acdata.asubject }}</td>
+                                        <td>{{ acdata.ascore }}</td>
+                                        <td>{{ acdata.afullscore }}</td>
+                                        <td>{{ acdata.arank }}</td>
+                                        <td>{{ acdata.anpart }}</td>
+                                        <td>{{ acdata.apartrange }}</td>
+                                        <td>{{ acdata.acomment }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+{#          {% endfor %}#}
+
+
+
+          <!-- BEGIN SIDEBAR
+          <div class="sidebar col-md-3 col-sm-3">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
+            </ul>
+          </div>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+{#            {{ postform.as_p }}#}
+          <div class="col-md-12 col-sm-12">
+            <h2>Add Academic Record</h2>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-10 col-sm-10">
+                  <form class="form-horizontal" role="form" method="post" action="/academirecord/">
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend></legend>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.atype.error }}
+                                <label for="" class=" control-label">Please select type of your record <span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.atype }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.adate.error }}
+                                <label for="" class="control-label">Date. e.g. <span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.adate }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.asubject.error }}
+                                <label for="" class="control-label">Subject <span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.asubject }}
+                                </div>
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.ascore.error }}
+                                <label for="" class="control-label">Score <span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.ascore }}
+                                </div>
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.afullscore.error }}
+                                <label for="" class="control-label">Full Score <span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.afullscore }}
+                                </div>
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.arank.error }}
+                                <label for="" class="control-label">Rank <span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.arank }}
+                                </div>
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.anpart.error }}
+                                <label for="" class="control-label">Number of participants. e.g. Number of the students in same level, Number of Compatitor in the Challenge. <span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.anpart }}
+                                </div>
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.apartrange.error }}
+                                <label for="" class="control-label">Participants Range e.g. Students in same school, Golf Althetes in CA of age 10-12.<span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.apartrange }}
+                                </div>
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ academirecordform.acommit.error }}
+                                <label for="objective" class="control-label">Comment<span class="require">*</span></label>
+                                <div class="">
+                                  {{ academirecordform.acomment }}
+                                </div>
+                             </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-default">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+{% endblock %}

@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR
+          <div class="sidebar col-md-3 col-sm-3">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
+              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
+            </ul>
+          </div>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+{#            {{ postform.as_p }}#}
+          <div class="col-md-12 col-sm-12">
+            <h1>Your Profile</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-10 col-sm-10">
+                  <form class="form-horizontal" role="form" method="post" action="/userinfo/" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>Your Profile</legend>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ form_user.first_name.error }}
+                                <label for="first_name" class=" control-label">First name <span class="require">*</span></label>
+                                <div class="">
+                                    {{ form_user.first_name }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ form_user.last_name.error }}
+                                <label for="last_name" class="control-label">Last name<span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_user.last_name }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ form_user.email.error }}
+                                <label for="email" class="control-label">Your Email Address <span class="require">*</span></label>
+                                  <div class="">
+
+                                      {{ form_user.email }}
+                                  </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ form_profile.phone_number.error }}
+                                <label for="phonenumber" class=" control-label">Your Phonenumber <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.phone_number }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ form_profile.zipcode.error }}
+                                <label for="zipcode" class=" control-label">Zipcode <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.zipcode }}
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ form_profile.country.error }}
+                                <label for="country" class=" control-label">Country <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.country }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6" style="margin: 5px; margin-right: 0px">
+                                  {{ form_profile.timezone.error }}
+                                <label for="timezone" class=" control-label">Timezone <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.timezone }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ form_profile.subject_s.error }}
+                                <label for="subject" class="control-label">What subject(s) would you like to receive tutoring in? (Please be specific, e.g. elementary math, Calculus A, etc.). <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.subject_s }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ form_profile.grade_s.error }}
+                                <label for="grade" class="control-label">What grade is the student currently enrolled in?  <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.grade_s}}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ form_profile.goal_s.error }}
+                                <label for="goal" class="control-label">What goals do you hope to achieve with the assistance of tutoring?  <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.goal_s}}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ form_profile.disability_s.error }}
+                                <label for="disability" class="control-label">Does the student possess any learning disabilities or possess any special circumstances you would like to share with us?  <span class="require">*</span></label>
+                                <br>
+                                <div class="col-md-3">
+                                    {{ form_profile.disability_s }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                  {{ form_profile.travel.error }}
+                                <label for="locations" class="control-label">At what locations are you willing to receive tutoring?  <span class="require">*</span></label>
+                                <div class="">
+                                  {{ form_profile.travel }}
+                                </div>
+                              </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">Update your Profile</button>
+                        <button type="button" class="btn btn-default">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+{% include "footer-m.html" %}
+{% endblock %}

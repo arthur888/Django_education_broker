@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+    <div class="main" >
+      <div class="container">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12" style="position: absolute; top:10%; margin-bottom: 150px">
+            <h1>USER PROFILE</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <form class="form-horizontal" role="form" method="post" action="/createstudent_4/" enctype='multipart/form-data'>
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>TERM OF USE</legend>
+                        <h4></h4>
+                        <p style="font-size: 18px">
+                            Welcome to NexuStars! These Terms of Service (“Terms”) are a contract between you and NexuStars Technologies Inc.
+                            , a California corporation (“NexuStars,” “we,” “us” or “our”) and govern your access to and use of any NexuStars website,
+                            mobile application, content, or services made available through NexuStars (collectively, the “Site”).
+                            The terms “you,” “your,” and “yours” refer to Students, Educators or any person or entity who uses the Site.
+                            Please read these Terms carefully before accessing and using the Site.
+                            <span style="font-weight:bold">If you do not agree to these Terms, including the mandatory arbitration provision and class action waiver in Section 12, do not access the Site or use our services.</span>
+                        </p>
+                        <hr>
+                        <p style="font-size: 22px">
+                            1. SERVICES.
+                        </p>
+                        <p style="font-size: 16px">
+                            NexuStars is an online platform connecting Students who seek tutoring services to Educators who provide tutoring services.
+                            We make finding the right Educator easy by providing information regarding an Educator’s experience, education, reviews from other Students and background or professional
+                            checks on our platform.  While NexuStars makes every effort to match Students with the best Educators for their tutoring needs,
+                            it is solely the Student’s responsibility to conduct the proper research when picking an Educator. Tutoring sessions should always be held in a safe environment with adult supervision.
+                        </p>
+                        <hr>
+                        <p style="font-size: 22px">
+                            2. USE.
+                        </p>
+                        <p style="font-size: 16px">
+                            a) Acceptance of Terms. <br><br>
+                            By accessing and/or using the Site, you accept and agree to be bound by these Terms,
+                            just as if you had agreed to these Terms in writing. If you do not agree to these Terms, do not use the Site. <br><br>
+                            b) Amendment of Terms. <br><br>
+                            We reserve the right to amend the Terms from time to time. You are responsible for regularly reviewing these Terms.
+                            All amendments will be effective upon posting of such updated Terms.
+                            Your continued access to or use of the Site after such posting constitutes your consent to be bound by the Terms, as amended.<br><br>
+                            c) Other Agreements.<br><br>
+                            These Terms do not alter in any way the terms or conditions of any other agreement you may have with NexuStars for products, services or otherwise.
+                        </p>
+                        <hr>
+                        <p style="font-size: 22px">
+                            3. ELIGIBILITY AND ACCOUNT INFORMATION.
+                        </p>
+                        <p style="font-size: 16px">
+                            a) Eligibility. <br><br>
+                            To ensure that we are providing the safest community for our users,
+                            we require users to meet certain eligibility requirements (the “Eligibility Requirements”).
+                            By accessing our Site, you represent and warrant: (i) that you are eighteen (18) years of age or older and have the legal capacity to enter into these Terms;
+                            (ii) you have not been suspended or removed from our Site; (iii) that you are in compliance at all times with all laws and regulations;
+                            and (iv) neither you, nor anyone in your home: (a) has been the subject of any legal action, police investigation or criminal complaint;
+                            (b) has been convicted of a crime of any nature; and/or (c) was and/or is currently required to register as a sex offender in any jurisdiction or with any government entity. <br><br>
+                            You acknowledge that NexuStars may rely on the above Eligibility Requirements as true without independently verifying such information.
+                            You understand and agree that NexuStars does not independently conduct background or professional checks on of any of its users.
+                            Educators and/or Students that wish to run a background or professional check on an Educator can do so by using NexuStars’ third party provider.
+                            You understand and agree that NexuStars does not independently verify the background or professional check results provided by such third party providers.
+                            We strive to give users quality resources and accurate information when pairing Students with Educators but ultimately,
+                            it is your responsibility to make informed assessments about who to engage.<br><br>
+                            Because we do not verify Eligibility Requirements or other user-submitted information for specific users,
+                            we expressly disclaim, and you expressly release us from, any and all liability whatsoever for any controversies,
+                            claims, suits, injuries and/or damages arising from and/or in any way related to a user’s Eligibility Requirements.<br><br>
+                            b) Account Information. <br><br>
+                            In order to access portions of our Site, including setting up tutoring sessions, you may need to register for an account.
+                            When you register for an account, you agree to provide us with complete, accurate and up-to-date information in your account profile.
+                            You further agree not to share or loan your account to others and to take all necessary security precautions to protect your account from unauthorized use.
+                            You assume all responsibility and liability stemming from the use of your account and assume all risks associated with any unauthorized access to your account.<br><br>
+                        </p>
+                        <hr>
+                        <p style="font-size: 22px">
+                            4. USER CONDUCT.
+                        </p>
+                        <p style="font-size: 16px">
+                            a) User Transactions. <br><br>
+                            NexuStars helps connect Students to Educators and facilitate payments for such services.
+                            By using our Site, you agree not to circumvent the Site’s platform to book tutoring sessions with Students or Educators that were introduced through the Site.
+                            Educators are not allowed to offer tutoring services from more than one NexuStars account.<br><br>
+                            b) No Cheating. <br><br>
+                            NexuStars is here to help Students learn, not cheat. NexuStars reserves the right to discontinue account privileges for any person who is found to be cheating.<br><br>
+                            c) User Content. <br><br>
+                            Our Site or social media platforms may allow you to post, create, share or store text, photos, videos and other materials (“Content”).
+                            You agree not to upload, post or otherwise transmit Content that:
+                            (a) is inaccurate, harmful, obscene, pornographic, defamatory, racist, violent, offensive, harassing, or otherwise objectionable to NexuStars or other users of the Site;
+                            (b) violates or infringes on anyones intellectual property or proprietary rights;
+                            (c) contains software viruses or any other programs that would disrupt the functionality of the Site or other users’ experiences on the Site;
+                            or (d) violates any law, rule or ordinance. NexuStars reserves the right to edit or remove Content that violates these Terms and for any reason it deems necessary.<br><br>
+                            We claim no ownership over the Content that you produce, except if produced under a separate agreement between you and NexuStars.
+                            By posting Content on our Site, you agree to grant NexuStars a license to display your Content on our Site without any expectation of compensation.
+                            This includes allowing us to use your Content for marketing purposes.<br><br>
+                            d) Prohibited Conduct. <br><br>
+                            In order to provide a safe and happy environment for all of our users, you promise not to:<br><br>
+                            .Harass, threaten, or defraud users or staff of NexuStars or our vendors;<br><br>
+                            .Make unsolicited offers, advertisements, proposals, or send junk mail or “spam” to users;<br><br>
+                            .Pretend to be another person or access another user’s account;<br><br>
+                            .Infringe upon any patent, trademark, trade secret, copyright or other proprietary right of any party;<br><br>
+                            .Misrepresent the source, identity, or content of information transmitted via the Site; or<br><br>
+                            .Take any action that would undermine any aspect of the Site;<br><br>
+                            .Access anything posted by another user that you know, or reasonably should know is in violation of these Terms;<br><br>
+                            .Reproduce, duplicate, copy, sell, re-sell or exploit any information, materials or content on the Site.<br><br>
+                            e) Prohibited Uses. <br><br>
+                            You will not use the Site for any purpose that is unlawful or prohibited by these Terms.
+                            You may not use the Site in any way that, in our view, could interfere with another user’s and enjoyment of the Site.
+                            You may not attempt to gain unauthorized access to the Site, or any part of the Site, other accounts, web servers, networks or databases connected to the Site,
+                            or any part of them, through hacking, reverse engineering or any ways of interfering with the proper working of the Site.
+                            You agree not interfere with security-related features of the Site.<br><br>
+                        </p>
+                        <hr>
+                        <p style="font-size: 22px">
+                            5. PAYMENT.
+                        </p>
+                        <p style="font-size: 16px">
+                            You understand and agree to abide by NexuStars’ and NexuStars’ third party providers’ payment policies, including the NexuStars Payment Policy and NexuStars Payment Schedule.
+                            You agree to pay all costs associated with using the Site and the services provided by NexuStars.
+                            These costs include, but are not limited to, an Educator’s tutoring payment, cancellation or late fees and the commission arrangement between the Educator and NexuStars.
+                        </p>
+                        <hr>
+                        <p style="font-size: 22px">
+                            6. INTELLECTUAL PROPERTY RIGHTS.
+                        </p>
+                        <p style="font-size: 16px">
+                            The NexuStars website and mobile applications are owned and operated by NexuStars.
+                            This Site and its entire contents, including visual interfaces, graphics, design, compilation, information, computer code, products, software, services,
+                            and all other elements of the Site provided by NexuStars (“Materials”) are protected by United States and international copyright,
+                            trademark, patent, trade secret and other intellectual property or proprietary rights laws. Except for Content uploaded by you, the Materials
+                            on the Site are the copyrighted property of NexuStars. <br><br>
+                            All trademarks, service marks, and trade names are proprietary to NexuStars and you agree not to use them without NexuStars’ written consent.
+                            If you create anything using the NexuStars trademark, you agree that NexuStars exclusively owns all right, title and interest in and to such materials,
+                            including without limitation any modifications or derivative work based off of the NexuStars trademark.
+                            You further agree to assign any interest or right you may have in such materials to NexuStars,
+                            and to provide information and execute any documents to formalize such assignment.<br><br>
+                            These Terms permit you to use the Site for your personal use only.
+                            You agree not to sell, license, distribute, copy, modify, publicly perform or display, transmit, publish, edit, adapt, create derivative works from,
+                            or otherwise make unauthorized use of the Materials.
+                        </p>
+                        <hr>
+                        <p style="font-size: 22px">
+                            7. INDEMNIFICATION.
+                        </p>
+                        <p style="font-size: 16px">
+                            You will defend, indemnify and hold harmless NexuStars, its independent contractors, service providers and consultants, and their respective directors,
+                            officers, employees and agents (collectively, “NexuStars Parties”), from and against any claims, damages, costs, liabilities and expenses (including,
+                            but not limited to, reasonable attorneys fees) arising out of or related to your access, use or conduct on our Site, any Content you provide or your violation of these Terms.
+                        </p>
+                        <hr>
+
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                <div class="">
+                                    <input type="checkbox" value="" required> By checking this box, I certify that I understand and accept NexuStars INDEPENDENT CONTRACTOR AGREEMENT.<br>
+                                </div>
+                              </div>
+                        </div>
+
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_4form.agsign.errors }}
+                                <label for="" class=" control-label">Sign Your Full Name <span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_4form.agsign }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_4form.agaddress.errors }}
+                                <label for="" class=" control-label">Address <span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_4form.agaddress }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ cs_4form.agsigndate.error }}
+                                <label for="" class=" control-label">Date of Today <span class="require">*</span></label>
+                                <div class="">
+                                    {{ cs_4form.agsigndate }}
+                                </div>
+                              </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">SUBMIT ALL DATA</button>
+                        <a type="button" href="/createstudent_3/" class="btn btn-default">GO TO PREVIOUS STEP</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

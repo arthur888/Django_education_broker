@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+    <div class="main" >
+      <div class="container">
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12" style="position: absolute; top:10%; margin-bottom: 150px">
+            <h1>Educator Profile</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <form class="form-horizontal" role="form" method="post" action="/createteacher_2/" enctype='multipart/form-data'>
+                      {% csrf_token %}
+                    <fieldset>
+                      <legend>PROFESSIONAL BACKGROUND</legend>
+                        <h4>Thanks for providing us with some basic information that will be used to match you with potential students!</h4>
+                        <h4>Now it's time to create your Tutor Profile that will be visible to students.</h4><hr>
+                        <p style="font-size: 18px">Remember this is your chance to highlight your skills and make yourself stand out, so don't be shy about talking about your accomplishments.
+                            (Please note we do not ask about the specific subjects you are interested in tutoring here because we will ask that in the Tutor Skills Supplement.)
+                            Also, don't worry if you don't get your profile exactly as you want it the first time.
+                            You can always come back later and update your profile.
+                        </p>
+                        <hr>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.university.error }}
+                                <label for="" class=" control-label">Please select the college you most recently earned a degree from <span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.university }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.educationlevel.error }}
+                                <label for="" class=" control-label">Please select your educational level.<span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.educationlevel }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.tutoringexpskill.error }}
+                                <label for="" class=" control-label">Describe your tutoring experience and skills.<span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.tutoringexpskill }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.expertfieldexp.error }}
+                                <label for="" class=" control-label">Please tell us about your field of expertise and the experience you have in this field.<span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.expertfieldexp }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.lengthtimeworkededucator.error }}
+                                <label for="" class=" control-label">Please select the length of time you have worked as an educator.<span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.lengthtimeworkededucator }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.professionalaward.error }}
+                                <label for="" class=" control-label">List any academic or professional awards you have received.<span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.professionalaward }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.academicinstitution.error }}
+                                <label for="" class=" control-label">List all academic institutions attended and the degree held from each (if degree is still in progress note the expected completion date).<span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.academicinstitution }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-10" style="margin: 5px">
+                                  {{ ct_2form.professionalcertification.error }}
+                                <label for="" class=" control-label">List any professional certifications or credentials you possess.<span class="require">*</span></label>
+                                <div class="">
+                                    {{ ct_2form.professionalcertification }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="row" >
+                              <div class="form-group col-md-5" style="margin: 5px">
+                                  {{ ct_2form.userimg.error }}
+
+                                <label for="" class=" control-label">Upload your profile picture.<span class="require">*</span></label>
+                                  <hr>
+                                <div class="">
+                                    {{ ct_2form.userimg }}
+                                </div>
+                              </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">CONTINUE TO NEXT STEP</button>
+                        <a type="button" href="/createteacher_1/" class="btn btn-default">GO TO PREVIOUS STEP</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+
+
+
+{% endblock %}

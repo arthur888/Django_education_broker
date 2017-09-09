@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+
+          <div class="col-md-12 col-sm-12">
+            <h1>Star Profile</h1>
+            <div class="content-form-page">
+              <div class="row">
+              <form class="form-horizontal" role="form" method="post" action="/teacherinfo/" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <div class="col-md-6 col-sm-6">
+                        <fieldset>
+                            <legend>PERSONAL INFO</legend>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_user.first_name.errors }}
+                                    <label for="" class="control-label">First Name <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_user.first_name }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_user.last_name.errors }}
+                                    <label for="" class="control-label">Last Name <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_user.last_name }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.phone_number.errors }}
+                                    <label for="" class="control-label">Phone Number <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.phone_number }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <legend>LOCATION AND ADDRESS</legend>
+                            <h4>We use your address to pair you with users who are seeking help with your service around your area.</h4>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.timezone.errors }}
+                                    <label for="" class="control-label">Timezone <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.timezone }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.address.errors }}
+                                    <label for="" class="control-label">Address <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.address }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.city.errors }}
+                                    <label for="" class="control-label">City <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.city }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.state.errors }}
+                                    <label for="" class="control-label">State <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.state }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.country.errors }}
+                                    <label for="" class="control-label">Country <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.country }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.zipcode.errors }}
+                                    <label for="" class="control-label">Zipcode <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.zipcode }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.range.errors }}
+                                    <label for="" class="control-label">How far are you willing to travel? <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.range }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.travel.errors }}
+                                    <label for="" class="control-label">At what locations are you willing to tutor? (Select all that apply) <span class="require">*</span></label><br><br>
+                                    <div class="">
+                                      {{ tform_profile.travel }}
+                                    </div>
+                                  </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <fieldset>
+                            <legend>PROFESSIONAL BACKGROUND</legend>
+                            <p style="font-size: 16px">Remember this is your chance to highlight your skills and make yourself stand out, so don’t be shy about talking about your accomplishments.
+                                (Please note we do not ask about the specific subjects you are interested in tutoring here because we will ask that in the Tutor Skills Supplement.)
+                                Also, don’t worry if you don’t get your profile exactly as you want it the first time. You can always come back later and update your profile.</p>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.university.errors }}
+                                    <label for="" class="control-label">Please select your graduation school/college/university <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.university }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.tutoringexpskill.errors }}
+                                    <label for="" class="control-label">Describe your tutoring experience, your skill and the subject you are good at. <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.tutoringexpskill }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.academicinstitution.errors }}
+                                    <label for="" class="control-label">List all academic institutions attended and the degree held from each (if degree is still in progress note the expected completion date). <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.academicinstitution }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.expertfieldexp.errors }}
+                                    <label for="" class="control-label">What is your experience in your field? <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.expertfieldexp }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.professionalaward.errors }}
+                                    <label for="" class="control-label">List any academic or professional awards you have received. <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.professionalaward }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10" style="margin: 5px; margin-right: 0px">
+                                      {{ tform_profile.professionalcertification.errors }}
+                                    <label for="" class="control-label">List any professional certifications or credentials you possess. <span class="require">*</span></label>
+                                    <div class="">
+                                      {{ tform_profile.professionalcertification }}
+                                    </div>
+                                  </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                      <hr>
+                      <div class="row">
+                          <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                            <button type="submit" class="btn btn-primary">Update your Profile</button>
+                            <a type="button" class="btn btn-default">Cancel</a>
+                          </div>
+                      </div>
+             </form>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+{% include "footer-m.html" %}
+{% endblock %}

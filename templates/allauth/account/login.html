@@ -1,0 +1,132 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+{#    <h1>{% trans "Sign In" %}</h1>#}
+{##}
+{#    {% get_providers as socialaccount_providers %}#}
+{##}
+{#    {% if socialaccount_providers %}#}
+{#    <p>{% blocktrans with site.name as site_name %}Please sign in with one#}
+{#    of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>#}
+{#    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>#}
+{##}
+{#    <div class="socialaccount_ballot">#}
+{##}
+{#      <ul class="socialaccount_providers">#}
+{#        {% include "socialaccount/snippets/provider_list.html" with process="login" %}#}
+{#      </ul>#}
+{##}
+{#      <div class="login-or">{% trans 'or' %}</div>#}
+{##}
+{#    </div>#}
+{##}
+{#    {% include "socialaccount/snippets/login_extra.html" %}#}
+{##}
+{#    {% else %}#}
+{#    <p>{% blocktrans %}If you have not created an account yet, then please#}
+{#    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>#}
+{#    {% endif %}#}
+{##}
+{##}
+{#      {% if redirect_field_value %}#}
+{#      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
+{#      {% endif %}#}
+
+
+
+
+
+        <div class="main" >
+          <div class="container" style="position: absolute; top: 10%; left: 35%; width: auto">
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <h3>Login</h3>
+                  </div>
+                      <div class="panel-body" style="padding: 30px">
+
+                                      <!-- BEGIN SIDEBAR & CONTENT -->
+                            <div class="row margin-bottom-40">
+
+                              <!-- BEGIN CONTENT -->
+                              <div class="">
+
+                                <div class="content-form-page">
+                                  <div class="row">
+                                    <div class="" >
+
+                                        <p><h5>{% trans "Welcome to login! Please enter your email and password." %}</h5></p>
+                                      <form class="form-horizontal form-without-legend login" method="POST" action="{% url 'account_login' %}" role="form">
+                                          {% csrf_token %}
+                                        <div class="form-group">
+                                            {{ form.email.errors }}
+                                          <label for="email" class="col-lg-4 control-label">Email <span class="require">*</span></label>
+                                          <div class="col-lg-8">
+                                              {{ form.login }}
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form.password.errors }}
+                                          <label for="password" class="col-lg-4 control-label">Password <span class="require">*</span></label>
+                                          <div class="col-lg-8">
+                                              {{ form.password }}
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-lg-8 col-md-offset-4 padding-left-0">
+                                            <a href="{% url 'account_reset_password' %}">Forget Password?</a>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                                            <button type="submit" class="btn btn-primary">{% trans "Sign In" %}</button>
+                                              <a type="button" href="{{ signup_url }}" class="btn btn-default">{% trans "Sign Up" %}</a>
+                                          </div>
+
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-10 padding-right-30">
+                                            <hr>
+                                            <div class="login-socio">
+                                                <p class="text-muted">or login using:</p>
+                                                <ul class="social-icons">
+                                                    <li><a href="javascript:;" data-original-title="facebook" class="facebook" title="facebook"></a></li>
+                                                    <li><a href="javascript:;" data-original-title="Twitter" class="twitter" title="Twitter"></a></li>
+                                                    <li><a href="javascript:;" data-original-title="Google Plus" class="googleplus" title="Google Plus"></a></li>
+                                                    <li><a href="javascript:;" data-original-title="Linkedin" class="linkedin" title="LinkedIn"></a></li>
+                                                </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- END CONTENT -->
+                            </div>
+                                        <!-- END SIDEBAR & CONTENT -->
+
+                      </div>
+              </div>
+
+
+          </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#id_login").addClass("form-control");
+                $("#id_password").addClass("form-control");
+            });
+        </script>
+
+
+{% endblock %}
+
+

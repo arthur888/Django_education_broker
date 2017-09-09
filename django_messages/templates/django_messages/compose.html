@@ -1,0 +1,68 @@
+
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+            <h1>{% trans "Compose Message"%}</h1>
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <div class="portlet box purple">
+                        <div class="portlet-title">
+                          <div class="caption">
+                          </div>
+                          <div class="tools">
+                            <a href="" class="collapse"></a>
+                          </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="form-body">
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="row" >
+                                         <div class="form-group col-md-12" style="margin: 5px">
+                                              {{ form.recipient.errors }}
+                                            <label for="" class=" control-label">Recipient (UserName)<span class="require">*</span></label>
+                                            <div class="form-group col-md-12" style="margin: 5px">
+                                                {{ form.recipient }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" >
+                                         <div class="form-group col-md-12" style="margin: 5px">
+                                              {{ form.subject.errors }}
+                                            <label for="" class=" control-label">Title<span class="require">*</span></label>
+                                            <div class="form-group col-md-12" style="margin: 5px">
+                                                {{ form.subject }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" >
+                                         <div class="form-group col-md-12" style="margin: 5px">
+                                              {{ form.body.errors }}
+                                            <label for="" class=" control-label">Content<span class="require">*</span></label>
+                                            <div class="form-group col-md-12" style="margin: 5px">
+                                                {{ form.body }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary" value="{% trans "Send" %} &raquo;"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

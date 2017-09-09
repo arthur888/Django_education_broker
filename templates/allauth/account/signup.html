@@ -1,0 +1,133 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+{#<h1>{% trans "Sign Up" %}</h1>#}
+{##}
+{#<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>#}
+{##}
+{#<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">#}
+{#  {% csrf_token %}#}
+{#  {% if redirect_field_value %}#}
+{#  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
+{#  {% endif %}#}
+{#  <button type="submit">{% trans "Sign Up" %} &raquo;</button>#}
+{#</form>#}
+
+    <div class="main" >
+          <div class="container" style="position: fixed; top: 10%; left: 35%; width: auto">
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <h3>Create an account</h3>
+                  </div>
+                      <div class="panel-body" style="padding: 40px">
+                          <!-- BEGIN SIDEBAR & CONTENT -->
+                            <div class="row margin-bottom-40">
+
+                              <!-- BEGIN CONTENT -->
+                              <div class="">
+
+                                  <p>{% trans "Please enter your default account data." %}</p>
+
+                                <div class="content-form-page"  >
+                                  <div class="row" >
+                                    <div class="" >
+
+                                      <form class="form-horizontal signup" role="form" id="signup_form" method="post" action="{% url 'account_signup' %}" >
+                                          {% csrf_token %}
+                                        <fieldset>
+                                          <legend>Your personal details</legend>
+                                          <div class="form-group">
+                                              {{ form.first_name.error }}
+                                            <label for="firstname" class="col-lg-4 control-label">First Name <span class="require">*</span></label>
+                                            <div class="col-lg-8">
+                                                {{ form.first_name }}
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              {{ form.last_name.error }}
+                                            <label for="lastname" class="col-lg-4 control-label">Last Name <span class="require">*</span></label>
+                                            <div class="col-lg-8">
+                                                {{ form.last_name }}
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              {{ form.email.error }}
+                                            <label for="email" class="col-lg-4 control-label">Email <span class="require">*</span></label>
+                                            <div class="col-lg-8">
+                                                {{ form.email }}
+                                            </div>
+                                          </div>
+                                        </fieldset>
+                                        <fieldset>
+                                          <legend>Your password</legend>
+                                          <div class="form-group">
+                                              {{ form.password1.error }}
+                                            <label for="password" class="col-lg-4 control-label">Password <span class="require">*</span></label>
+                                            <div class="col-lg-8">
+                                                {{ form.password1 }}
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              {{ form.password2.error }}
+                                            <label for="confirm-password" class="col-lg-4 control-label">Confirm password <span class="require">*</span></label>
+                                            <div class="col-lg-8">
+                                                {{ form.password2 }}
+                                            </div>
+                                          </div>
+                                        </fieldset>
+                    {#                    <fieldset>#}
+                    {#                      <legend>Newsletter</legend>#}
+                    {#                      <div class="checkbox form-group">#}
+                    {#                        <label>#}
+                    {#                          <div class="col-lg-4 col-sm-4">Singup for Newsletter</div>#}
+                    {#                          <div class="col-lg-8 col-sm-8">#}
+                    {#                            <input type="checkbox">#}
+                    {#                          </div>#}
+                    {#                        </label>#}
+                    {#                      </div>#}
+                    {#                    </fieldset>#}
+                                        <div class="row">
+                                          <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                                            <button type="submit" class="btn btn-primary">{% trans "Sign Up" %}</button>
+                                            <a type="button" href="{{ login_url }}" class="btn btn-default">Sign In</a>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- END CONTENT -->
+                            </div>
+                            <!-- END SIDEBAR & CONTENT -->
+                      </div>
+              </div>
+          </div>
+    </div>
+
+
+
+    <div class="main">
+      <div class="container" style="position: fixed; top: 20%; left: 30%">
+
+
+      </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#id_password1").addClass("form-control");
+            $("#id_password2").addClass("form-control");
+            $("#id_email").addClass("form-control");
+            $("#id_first_name").addClass("form-control");
+            $("#id_last_name").addClass("form-control");
+        });
+    </script>
+
+{% endblock %}

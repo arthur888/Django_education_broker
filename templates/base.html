@@ -1,0 +1,139 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Fonts START -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Pathway+Gothic+One|PT+Sans+Narrow:400+700|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static '/assets/global/plugins/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/global/plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/global/plugins/fancybox/source/jquery.fancybox.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/global/css/components.css' %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/layout/css/style.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/pages/css/style-revolution-slider.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/layout/css/style-responsive.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/layout/css/themes/red.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/frontend/layout/css/custom.css" %}">
+
+
+{#    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/style-responsive.css" %}">#}
+{#    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/themes/red.css" %}" id="style-color">#}
+{#    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/custom.css" %}">#}
+{##}
+{##}
+{##}
+
+
+
+
+
+
+
+{#    <link rel="stylesheet" href="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css" %}">#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#    <link rel="stylesheet" href="{% static "/assets/frontend/onepage/css/custom.css" %}">#}
+{##}
+{#    <link href="{% static "/assets/global/plugins/uniform/css/uniform.default.css" %}" rel="stylesheet" type="text/css">#}
+{#    <link href="{% static "/assets/global/css/components.css" %}" rel="stylesheet">#}
+{#    <link href="{% static "/assets/frontend/layout/css/style.css" %}" rel="stylesheet">#}
+{#    <link href="{% static "/assets/frontend/layout/css/style-responsive.css" %}" rel="stylesheet">#}
+{#    <link href="{% static "/assets/frontend/layout/css/themes/red.css" %}" rel="stylesheet" id="style-color">#}
+{#    <link href="{% static "/assets/frontend/layout/css/custom.css" %}" rel="stylesheet">#}
+
+
+    <script src="{% static "/assets/global/plugins/jquery.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/jquery-migrate.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "/assets/frontend/layout/scripts/back-to-top.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" %}"></script>
+    <script src="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" %}"></script>
+    <script src="{% static "/assets/frontend/pages/scripts/revo-slider-init.js" %}"></script>
+    <script src="{% static "/assets/frontend/layout/scripts/layout.js" %}"></script>
+
+
+{#  <script src="{% static "/assets/global/plugins/jquery.min.js" %}"></script>#}
+{#  <script src="{% static "/assets/global/plugins/jquery.min.js" %}"></script>#}
+{#  <script src="{% static "/assets/global/plugins/jquery.min.js" %}"></script>#}
+{#  <script src="{% static "/assets/global/plugins/jquery.min.js" %}"></script>#}
+{##}
+{##}
+{##}
+{#    <script src="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" %}"></script>#}
+{#    <script src="{% static "/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" %}"></script>#}
+{#    <script src="{% static "/assets/frontend/onepage/scripts/revo-ini.js" %}"></script>#}
+{#    <script src="{% static "/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" %}"></script>#}
+{#    <script src="{% static "/assets/global/plugins/jquery.easing.js" %}"></script>#}
+{#    <script src="{% static "/assets/global/plugins/jquery.parallax.js" %}"></script>#}
+{#    <script src="{% static "/assets/global/plugins/jquery.scrollTo.min.js" %}"></script>#}
+{#    <script src="{% static "/assets/frontend/onepage/scripts/jquery.nav.js" %}"></script>#}
+{#    <script src="{% static '/assets/frontend/onepage/scripts/layout.js' %}"></script>#}
+{#    <script src="{% static "/assets/global/plugins/respond.min.js" %}"></script>#}
+
+
+
+
+
+
+
+
+{#    <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>#}
+{#    <script src="{% static '/assets/global/plugins/gmaps/gmaps.js' %}"></script>#}
+    <script src="{% static '/assets/frontend/pages/scripts/contact-us.js' %}"></script>
+
+
+
+
+  </head>
+  <body>
+
+
+    {% if nowiam == 1 %}
+        {% include "navbar-at.html" %}<p>teacher</p>
+    {% elif nowiam == 0 %}
+        {% include "navbar-a.html" %}<p>student</p>
+    {% else %}
+
+    {% endif %}
+
+
+    {% block body %}
+
+{#        {% if messages %}#}
+{#            <div style="position: absolute">#}
+{#              <strong>Messages:</strong>#}
+{#              <ul>#}
+{#                    {% for message in messages %}#}
+{#                        <li>{{message}}</li>#}
+{#                    {% endfor %}#}
+{#              </ul>#}
+{#            </div>#}
+{#        {% endif %}#}
+
+        {% block content %}
+        {% endblock %}
+    {% endblock %}
+
+  </body>
+<script>
+        $(document).ready(function() {
+            Layout.init();
+            Layout.initOWL();
+            RevosliderInit.initRevoSlider();
+            Layout.initTwitter();
+        });
+    </script>
+</html>

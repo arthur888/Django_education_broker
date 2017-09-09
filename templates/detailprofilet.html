@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block content %}
+
+{#{% include "navbar-a.html" %}#}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+
+{#            {{ postform.as_p }}#}
+
+            <h1>Tutor Detail</h1>
+            <div class="content-form-page">
+
+            {% for tdata in tprofile %}
+
+            <div class="row">
+                <div class="col-md-10 col-sm-10">
+
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                          <div class="caption">
+                            <i class="fa fa-gift"></i> Detail Data
+                          </div>
+                          <div class="tools">
+                            <a href="" class="collapse"></a>
+                          </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="form-body">
+                                <dl>
+                                    <dt>TimeZone</dt>
+                                    <dd>{{ tdata.timezone }}</dd>
+                                    <dt>Address</dt>
+                                    <dd>{{ tdata.address }}</dd>
+                                    <dt>City</dt>
+                                    <dd>{{ tdata.city }}</dd>
+                                    <dt>State</dt>
+                                    <dd>{{ tdata.state }}</dd>
+                                    <dt>Country</dt>
+                                    <dd>{{ tdata.country }}</dd>
+                                    <dt>Zipcode</dt>
+                                    <dd>{{ tdata.zipcode }}</dd>
+                                    <dt>Willing To Travel</dt>
+                                    <dd>{{ tdata.range }}</dd>
+                                    <dt>Locations Willing To Tutor</dt>
+                                    <dd>{{ tdata.travel }}</dd>
+                                    <dt>University</dt>
+                                    <dd>{{ tdata.university }}</dd>
+                                    <dt>Tutoring Experience and Good Skills</dt>
+                                    <dd>{{ tdata.tutoringexpskill }}</dd>
+                                    <dt>Academic Institutions Attended And Degree</dt>
+                                    <dd>{{ tdata.academicinstitution }}</dd>
+                                    <dt>Experience In This Field</dt>
+                                    <dd>{{ tdata.expertfieldexp }}</dd>
+                                    <dt>Academic Or Professional Awards</dt>
+                                    <dd>{{ tdata.professionalaward }}</dd>
+                                    <dt>Professional Certifications or Credentials</dt>
+                                    <dd>{{ tdata.professionalcertification }}</dd>
+
+                                    <hr>
+                                    <dd>
+                                        <a href="/messages/compose/" type="button" class="btn btn-default">Send Message</a>
+                                        <a href="https://apprtc.appspot.com/" type="button" class="btn btn-default">Video Call</a>
+                                        <a href="/booking/{{ tdata.user_id }}" type="button" class="btn btn-success">Booking</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+
+
+{% endblock %}
